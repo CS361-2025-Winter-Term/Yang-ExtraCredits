@@ -1,4 +1,11 @@
+from enum import Enum
 from UserProfile import UserProfile
+
+class RegistrationStatus(Enum):
+    SUCCESS = "Success"
+    USER_ALREADY_EXISTS = "User already exists"
+    UNKNOWN_ERROR = "Unknown error"
+
 class AuthenticationManager:
     # AuthenticationManager handles user authentication, validation, and registration logic
     def validate_username(self, username: str) -> bool:
@@ -17,6 +24,6 @@ class AuthenticationManager:
         #hashes password for secure storage
         pass
 
-    def save_new_user(self, user_profile: UserProfile, hashed_password: str) -> str:
+    def save_new_user(self, user_profile: UserProfile, hashed_password: str) -> RegistrationStatus:
         #saves new user via userstoragemanager
         pass
